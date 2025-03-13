@@ -1,0 +1,19 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Kollias et~al.(2006)Kollias, Stafylopatis, Duch, and Oja]{DBLP:conf/icann/2006-1}
+Stefanos~D. Kollias, Andreas Stafylopatis, Wlodzislaw Duch, and Erkki Oja, editors.
+\newblock \emph{Artificial Neural Networks - ICANN 2006, 16th International Conference, Athens, Greece, September 10-14, 2006. Proceedings, Part I}, volume 4131 of \emph{Lecture Notes in Computer Science}, 2006. Springer.
+\newblock ISBN 3-540-38625-4.
+
+\bibitem[McCarthy(1956)]{mccarthy1956ai}
+John McCarthy.
+\newblock The dartmouth conference: The birth of artificial intelligence.
+\newblock Dartmouth College, 1956.
+\newblock Coined the term "Artificial Intelligence" during the Dartmouth Conference in 1956.
+
+\end{thebibliography}

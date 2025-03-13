@@ -1,0 +1,53 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  ../main.tex
+
+ \begin{tikzpicture}
+   [small mindmap,
+ every node/.style={concept, execute at begin node=\hskip0pt}, 
+ root concept/.append style={
+ 	concept color=red!50, text width=2.2cm}, 
+ text=white, 
+ grow cyclic, 
+ level 1/.append style={text width=1.8cm}, 
+ level 2/.append style={text width=1.4cm}
+ ] 
+ \node [root concept] {\sf \Large Machine Learning} % root 
+ child [concept color=blue, grow=north east] { node {\sf \scriptsize Supervised Learning}
+       child [concept color=blue!60, grow=north]{ node { \sf \scriptsize Classification} 
+ child [concept color=blue!90!black, level distance=1cm, grow=126]{ node [label={[blue!40!black]west:\sf Image Classification},scale=0.3]{ } } 
+ child [concept color=blue!90!black, level distance=1cm, grow=54]{ node [label={[blue!40!black]right:\sf Customer Retention},scale=0.3]{ } } 
+ child [concept color=blue!90!black, level distance=1cm, grow=198]{ node [label={[blue!40!black,xshift=1.5mm]left:\sf Big Data Visualisation},scale=0.3]{ } } 
+ child [concept color=blue!90!black, level distance=1cm, grow=342]{ node [label={[blue!40!black]right:\sf Diagnostics},scale=0.3]{ } }         
+       }
+        child [concept color=blue!60, grow=south east]{ node { \sf \scriptsize Regression} 
+ child [concept color=blue!90!black, level distance=1cm,grow=90]{ node [label={[blue!40!black,yshift=1.5mm]east:\sf \mbox{Advertising Popularity} Prediction},scale=0.3]{ } } 
+ child [concept color=blue!90!black, level distance=1cm,grow=270]{ node [label={[blue!40!black,xshift=-1mm]right:\sf Weather Forecasting},scale=0.3]{ } } 
+ child [concept color=blue!90!black, level distance=1cm,grow=330]{ node [label={[blue!40!black,xshift=-1mm]east:\sf Market Forecasting},scale=0.3]{ } } 
+ child [concept color=blue!90!black, level distance=1cm,grow=30]{ node [label={[blue!40!black, yshift=-1.5mm]right:\sf Extimating Life Expectacting},scale=0.3]{ } } 
+  child [concept color=blue!90!black, level distance=1cm, grow=210]{ node [label={[blue!40!black,xshift=1mm]left:\sf Population Growth Prediction},scale=0.3]{ } }          
+        }
+ } 
+ child [concept color=magenta!60!black,  grow=south] { node  {\sf \scriptsize \mbox{Reinforcement} Learning}
+       child [concept color=magenta!80!black, level distance=1.25cm, grow=30]{ node [label={[magenta!90!black,xshift=-1.5mm]right:\sf Game AI},scale=0.25]{ } } 
+       child [concept color=magenta!80!black, level distance=1.25cm, grow= 330]{ node [label={[magenta!90!black]east:\sf Skill Acquisition},scale=0.25]{ } } 
+       child [concept color=magenta!80!black, level distance=1.25cm, grow=270]{ node [label={[magenta!90!black]right:\sf Learning Task},scale=0.25]{ } } 
+       child [concept color=magenta!80!black, level distance=1.25cm, grow=210]{ node [label={[magenta!90!black]left:\sf Robot Navigation},scale=0.25]{ } } 
+       child [concept color=magenta!80!black, level distance=1.25cm, grow=150]{ node [label={[magenta!90!black,xshift=1mm]left:\sf Real-Time Decisions},scale=0.25]{ } } 
+ } 
+ child [concept color=green!60!black, grow=north west] { node {\sf \scriptsize Unsupervised Learning} 
+   child  [concept color=green!80!black, grow=north] { node { \sf \scriptsize \mbox{Dimensionality} Reduction} 
+ child [concept color=green!60!black, level distance=1cm, grow=126]{ node [label={[green!40!black]left:\sf Meaningful Compression},scale=0.3]{ } } 
+ child [concept color=green!60!black, level distance=1cm, grow=54]{ node [label={[green!40!black]right:\sf Structure Discovery},scale=0.3]{ } } 
+ child [concept color=green!60!black, level distance=1cm, grow=198]{ node [label={[green!40!black]left:\sf Big Data Visualisation},scale=0.3]{ } } 
+ child [concept color=green!60!black, level distance=1cm, grow=342]{ node [label={[green!40!black, xshift=-2.5mm]right:\sf Feature Elicitation},scale=0.3]{ } }   
+   }
+   child  [concept color=green!80!black, grow=south west] { node { \sf \scriptsize Clustering} 
+child [concept color=green!60!black, level distance=1cm, grow=north]{ node [label={[green!40!black]left:\sf Recommender System},scale=0.3]{ } } 
+child [concept color=green!60!black, level distance=1cm, grow=south west]{ node [label={[green!40!black]left:\sf Targetted Marketing},scale=0.3]{ } } 
+ child [concept color=green!60!black, level distance=1cm, grow=south east]{ node [label={[green!40!black]right:\sf Customer Segmentation},scale=0.3]{ } } 
+   }
+   %... % as before 
+   };
+ \end{tikzpicture}

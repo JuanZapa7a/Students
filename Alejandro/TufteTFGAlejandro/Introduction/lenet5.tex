@@ -1,0 +1,115 @@
+%\noindent\begin{minipage}[c]{\linewidth}\centering
+% \vspace{\baselineskip} \small 
+%\mtotex{g}{quick60}
+%1 row
+
+
+\newcommand{\xangle}{0}
+\newcommand{\yangle}{90}
+\newcommand{\zangle}{220}
+
+\newcommand{\xlength}{1}
+\newcommand{\ylength}{1}
+\newcommand{\zlength}{0.9}
+
+\pgfmathsetmacro{\xx}{\xlength*cos(\xangle)}
+\pgfmathsetmacro{\xy}{\xlength*sin(\xangle)}
+\pgfmathsetmacro{\yx}{\ylength*cos(\yangle)}
+\pgfmathsetmacro{\yy}{\ylength*sin(\yangle)}
+\pgfmathsetmacro{\zx}{\zlength*cos(\zangle)}
+\pgfmathsetmacro{\zy}{\zlength*sin(\zangle)}
+
+%\def\space{.5} %space betwwen layer
+%(0,0,0) coordinate (O);
+ \begin{tikzpicture}
+[   x={(\xx ,\xy )},
+    y={(\yx ,\yy )},
+    z={(\zx ,\zy )},
+]
+ 
+\newcommand{\networkLayer}[9]{
+			\def\H{#1}% Height Y
+			\def\W{#2}% Width XZ
+			\def\D{#3} % Depth X
+			\def\h{#4} % Height  Filter y 				
+			\def\w{#5} % Width XZ Filter
+			\def\s{#6} % s distance to next layer 
+			\def\oh{#7}% N=1 or S=-1
+			\def\ow{#8} %E=1 or W=-1
+			\networkLayercontinued#9
+			%\def\S1{#8} %
+			%\def\S2{#9} %
+			%\def\S3{#10} %
+			% Draw the layer body.
+}			
+%NNSVG node[midway,below]{\tiny #3}  node[midway,right,xshift=-2]{\tiny #1}  node[midway,right]{\tiny #2} Tensor opacity Filter opacity Spacing between layers 
+
+\newcommand{\networkLayercontinued}[6]{
+% %Filter lateral face  
+%\filldraw[opacity=0.8,fill=black!30] (.5*\w,-.5*\h,.5*\w) --++ (0,\h,0)  --++ (-\w,0,-\w) --++ (0,-\h,0) -- (.5*\w,-.5*\h,.5*\w);
+%
+%%Filter Front Face 
+%  \filldraw[opacity=0.8,fill=black!30] (.5*\w,-.5*\h,.5*\w) --++ ( \D,0,0) --++ (0,\h,0) --++  ( -\D,0,0) --++   (0,-\h,0)node[opacity=1,midway,right]{\tiny #4} ;
+%  
+% %Filter Top Face 
+%  \filldraw[opacity=0.8,fill=black!30] (.5*\w,.5*\h,.5*\w) --++ (-\w,0,-\w)node[opacity=1,midway,right]{\tiny #5}  --++ ( \D,0,0)  --++ (\w,0,\w)  --++ ( -\D,0,0); 
+%
+% \coordinate (A) at (+\D+.5*\w,-.5*\h,.5*\w);
+% \coordinate (B) at (+\D+.5*\w,-.5*\h+\h,.5*\w);
+% \coordinate (C) at (+\D+.5*\w-\w,-.5*\h+\h,.5*\w-\w);
+% \coordinate (D) at (\D+\s,0,0);
+% \draw (A) -- (D);
+% \draw (B) -- (D);
+% \draw (C) -- (D);
+
+% Filter lateral face  
+\filldraw[opacity=0.8,fill=black!20] (.25*\ow*\W+0.5*\w,\oh*.25*\H-0.5*\h,.25*\ow*\W+0.5*\w) --++ (0,\h,0)  --++ (-\w,0,-\w) --++ (0,-\h,0) -- (.25*\ow*\W+0.5*\w,\oh*.25*\H-0.5*\h,.25*\ow*\W+0.5*\w);
+
+%Filter Front Face 
+  \filldraw[opacity=0.8,fill=black!20] (.25*\ow*\W+0.5*\w,\oh*.25*\H-0.5*\h,.25*\ow*\W+0.5*\w) --++ ( \D,0,0) --++ (0,\h,0) --++  ( -\D,0,0) --++   (0,-\h,0)node[opacity=1,midway,right]{\tiny #4} ;
+  
+%Filter Top Face 
+  \filldraw[opacity=0.8,fill=black!20] (.25*\ow*\W+0.5*\w,\oh*.25*\H-0.5*\h+\h,.25*\ow*\W+0.5*\w) --++ (-\w,0,-\w)node[opacity=1,midway,right]{\tiny #5}  --++ ( \D,0,0)  --++ (\w,0,\w)  --++ ( -\D,0,0); 
+\coordinate (A) at (\D+.25*\ow*\W+0.5*\w,\oh*.25*\H-0.5*\h,.25*\ow*\W+0.5*\w);
+ \coordinate (B) at (\D+.25*\ow*\W+0.5*\w,\oh*.25*\H-0.5*\h+\h,.25*\ow*\W+0.5*\w);
+ \coordinate (C) at (\D+.25*\ow*\W+0.5*\w-\w,\oh*.25*\H-0.5*\h+\h,.25*\ow*\W+0.5*\w-\w);
+ \coordinate (D) at (\D+.25*\ow*\W+0.5*\w+\s -.5*\w,\oh*.25*\H-0.5*\h,.25*\ow*\W+0.5*\w-.5*\w);
+ \draw[densely dotted] (A) -- (D);
+ \draw[densely dotted] (B) -- (D);
+ \draw[densely dotted] (C) -- (D);
+%(0,0,0) coordinate (o);
+
+%Lateral Face
+  \filldraw[opacity=0.5,fill=black!20] (.5*\W,-.5*\H,.5*\W) --++ (0,\H,0)  --++ (-\W,0,-\W) --++ (0,-\H,0) -- (.5*\W,-.5*\H,.5*\W);
+ %Front Face 
+  \filldraw[opacity=0.5,fill=black!20] (.5*\W,-.5*\H,.5*\W) --++ ( \D,0,0)node[opacity=1,midway,below,label=below:\tiny #6]{\tiny #3} --++ (0,\H,0) --++  ( -\D,0,0) --++   (0,-\H,0)node[opacity=1,midway,right]{\tiny #1} ;
+  %Top Face 
+  \filldraw[opacity=0.5,fill=black!20] (.5*\W,.5*\H,.5*\W) --++ (-\W,0,-\W)node[opacity=1,midway,right]{\tiny #2}  --++ ( \D,0,0)  --++ (\W,0,\W)  --++ ( -\D,0,0);
+
+
+
+\tikzset{shift={(\D+\s,0,0)}};
+
+}
+% From left to right
+% 1 Height Y, 2 Width XZ, 3 Depth X, 4 Height  Filter y, 5 Width XZ Filter, 6 s distance to next layer,7 N=1 or S=-1,8 E=1 or W=-1,  9 text H, 10 text W, 11 Text depth, 12 text w filter, 13 text height filter ,14 type of layer
+
+\networkLayer{3.2}{3.2}{0.1}{0}{0}{1}{0}{0}{{32}{32}{1}{}{}{Image}}
+\networkLayer{2.8}{2.8}{0.6}{0.5}{0.5}{0.8}{1}{-1}{{23}{23}{5}{5}{5}{Conv}}
+\networkLayer{1.4}{1.4}{0.6}{0.2}{0.2}{0.5}{1}{-1}{{14}{14}{6}{2}{2}{Av. Pool}}
+\networkLayer{1}{1}{1.6}{0.5}{0.5}{0.3}{1}{1}{{10}{10}{16}{5}{5}{Conv}}
+\networkLayer{0.5}{0.5}{1.6}{0}{0}{0.3}{1}{1}{{5}{5}{16}{}{}{Av. Pool}}
+\networkLayer{6.0}{0.1}{0.1}{0}{0}{1}{0}{0}{{120}{1}{1}{}{}{Fully Conn}}
+\networkLayer{4.2}{0.1}{0.1}{0}{0}{1}{0}{0}{{84}{1}{1}{}{}{Fully Conn}}
+\networkLayer{1}{0.1}{0.1}{0}{0}{0}{0}{0}{{10}{1}{1}{}{}{0-9 digits}}
+%\networkLayer{5}{0.1}{0.01}{0}{0}{1}{0}{0}{{50}{1}{1}{}{}{}}
+%\networkLayer{5}{0.1}{0.01}{0}{0}{1}{0}{0}{{50}{1}{1}{}{}{}}
+%\networkLayer{5}{0.1}{0.01}{0}{0}{0}{0}{0}{{50}{1}{1}{}{}{}}
+
+
+
+\end{tikzpicture}
+
+%\captionof{figure}{.}
+%\label{Symbolic_label52}
+%\end{minipage}
